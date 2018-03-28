@@ -15,7 +15,7 @@ extension ASTableNode: HasDelegate {
     public typealias Delegate = ASTableDelegate
 }
 
-final class RxASTableDelegateProxy: DelegateProxy<ASTableNode, ASTableDelegate>, DelegateProxyType, ASTableDelegate {
+open class RxASTableDelegateProxy: DelegateProxy<ASTableNode, ASTableDelegate>, DelegateProxyType, ASTableDelegate {
     
     /// Typed parent object.
     public weak private(set) var tableNode: ASTableNode?

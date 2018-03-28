@@ -19,7 +19,7 @@ extension ASCollectionNode: HasDelegate {
 }
 
 /// For more information take a look at `DelegateProxyType`.
-final class RxASCollectionDelegateProxy: DelegateProxy<ASCollectionNode, ASCollectionDelegate>, DelegateProxyType, ASCollectionDelegate, ASCollectionDelegateFlowLayout {
+open class RxASCollectionDelegateProxy: DelegateProxy<ASCollectionNode, ASCollectionDelegate>, DelegateProxyType, ASCollectionDelegate, ASCollectionDelegateFlowLayout {
     
     /// Typed parent object.
     public weak private(set) var collectionNode: ASCollectionNode?
