@@ -138,6 +138,15 @@ public extension Reactive where Base: ASTableNode {
         
         return ControlEvent(events: source)
     }
+
+    var willBeginBatchFetch: ControlEvent<ASBatchContext> {
+        let source = self.delegate.methodInvoked(#selector(ASTableDelegate.tableNode(_:willBeginBatchFetchWith:)))
+            .map { a in
+                return try castOrThrow(ASBatchContext.self, a[1])
+        }
+
+        return ControlEvent(events: source)
+    }
     
     /**
      Reactive wrapper for `delegate` message `tableNode:didSelectRowAtIndexPath:`.
