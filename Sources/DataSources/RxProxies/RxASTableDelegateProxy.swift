@@ -30,6 +30,16 @@ final class RxASTableDelegateProxy: DelegateProxy<ASTableNode, ASTableDelegate>,
     public static func registerKnownImplementations() {
         self.register { RxASTableDelegateProxy(tableNode: $0) }
     }
+
+    /// For more information take a look at `DelegateProxyType`.
+    open class func currentDelegate(for object: ParentObject) -> ASTableDelegate? {
+        return object.delegate
+    }
+
+    /// For more information take a look at `DelegateProxyType`.
+    open class func setCurrentDelegate(_ delegate: ASTableDelegate?, to object: ParentObject) {
+        object.delegate = delegate
+    }
 }
 
 public extension Reactive where Base: ASTableNode {
