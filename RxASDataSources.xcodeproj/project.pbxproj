@@ -62,7 +62,6 @@
 		C56970202073206200B6D286 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56970172073206100B6D286 /* RxCocoa.framework */; };
 		C56970212073206200B6D286 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56970182073206100B6D286 /* RxDataSources.framework */; };
 		C56970222073206200B6D286 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56970192073206200B6D286 /* RxSwift.framework */; };
-		C56970232073206200B6D286 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C569701A2073206200B6D286 /* RxBlocking.framework */; };
 		C56970242073206200B6D286 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C569701B2073206200B6D286 /* PINRemoteImage.framework */; };
 		C56970252073213500B6D286 /* RxASDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3549BB211DA389CD00C63030 /* RxASDataSources.framework */; };
 		C56970262073214F00B6D286 /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56970162073206100B6D286 /* AsyncDisplayKit.framework */; };
@@ -158,7 +157,6 @@
 				C56970202073206200B6D286 /* RxCocoa.framework in Frameworks */,
 				C56970212073206200B6D286 /* RxDataSources.framework in Frameworks */,
 				C56970222073206200B6D286 /* RxSwift.framework in Frameworks */,
-				C56970232073206200B6D286 /* RxBlocking.framework in Frameworks */,
 				C56970242073206200B6D286 /* PINRemoteImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
