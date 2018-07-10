@@ -14,7 +14,7 @@ import RxCocoa
 var ASDelegateAssociatedTag: UnsafeRawPointer = UnsafeRawPointer(UnsafeMutablePointer<UInt8>.allocate(capacity: 1))
 var ASDataSourceAssociatedTag: UnsafeRawPointer = UnsafeRawPointer(UnsafeMutablePointer<UInt8>.allocate(capacity: 1))
     
-let dataSourceNotSet = ASTableDataSourceNotSet()
+fileprivate let dataSourceNotSet = ASTableDataSourceNotSet()
     
 final class ASTableDataSourceNotSet: NSObject, ASTableDataSource {
     

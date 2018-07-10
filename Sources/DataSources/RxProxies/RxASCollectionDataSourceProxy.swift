@@ -13,7 +13,7 @@ import RxSwift
 import RxCocoa
 #endif
 
-let collectionDataSourceNotSet = ASCollectionDataSourceNotSet()
+fileprivate let dataSourceNotSet = ASCollectionDataSourceNotSet()
 
 final class ASCollectionDataSourceNotSet: NSObject, ASCollectionDataSource {
 
@@ -22,6 +22,10 @@ final class ASCollectionDataSourceNotSet: NSObject, ASCollectionDataSource {
     }
 
     public func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
+        rxAbstractMethod(message: "DataSource not set")
+    }
+
+    func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
         rxAbstractMethod(message: "DataSource not set")
     }
 }
@@ -47,20 +51,27 @@ final class RxASCollectionDataSourceProxy: DelegateProxy<ASCollectionNode, ASCol
     }
 
     // MARK: DataSource
-    private weak var _requiredMethodsDataSource: ASCollectionDataSource? = collectionDataSourceNotSet
+    private weak var _requiredMethodsDataSource: ASCollectionDataSource? = dataSourceNotSet
 
     /// Required data source method implementation.
     public func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
-        return (_requiredMethodsDataSource ?? collectionDataSourceNotSet).collectionNode!(collectionNode, numberOfItemsInSection: section)
+        return (_requiredMethodsDataSource ?? dataSourceNotSet).collectionNode!(collectionNode, numberOfItemsInSection: section)
     }
 
     /// Required data source method implementation.
     public func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
-        return (_requiredMethodsDataSource ?? collectionDataSourceNotSet).collectionNode!(collectionNode, nodeForItemAt: indexPath)
+        return (_requiredMethodsDataSource ?? dataSourceNotSet).collectionNode!(collectionNode, nodeForItemAt: indexPath)
     }
     
+    /// Required datasource method implementation.
+    public func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
+        let dataSource = _requiredMethodsDataSource ?? dataSourceNotSet
+
+        return dataSource.collectionNode!(collectionNode, nodeBlockForItemAt: indexPath)
+    }
+
     public override func setForwardToDelegate(_ forwardToDelegate: ASCollectionDataSource?, retainDelegate: Bool) {
-        _requiredMethodsDataSource = forwardToDelegate ?? collectionDataSourceNotSet
+        _requiredMethodsDataSource = forwardToDelegate ?? dataSourceNotSet
         super.setForwardToDelegate(forwardToDelegate, retainDelegate: retainDelegate)
     }
     

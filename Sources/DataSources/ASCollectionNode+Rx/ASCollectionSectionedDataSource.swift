@@ -18,17 +18,41 @@ open class ASCollectionSectionedDataSource<S: SectionModelType>: NSObject, ASCol
     public typealias Section = S
     
     public typealias ConfigureCell = (ASCollectionSectionedDataSource<S>, ASCollectionNode, IndexPath, I) -> ASCellNode
+    public typealias ConfigureCellBlock = (ASCollectionSectionedDataSource<S>, ASCollectionNode, IndexPath, I) -> ASCellNodeBlock
     public typealias ConfigureSupplementaryView = (ASCollectionSectionedDataSource<S>, ASCollectionNode, String, IndexPath) -> ASCellNode
     public typealias MoveItem = (ASCollectionSectionedDataSource<S>, _ sourceIndexPath: IndexPath, _ destinationIndexPath:IndexPath) -> Void
     public typealias CanMoveItemAtIndexPath = (ASCollectionSectionedDataSource<S>, IndexPath) -> Bool
 
+    fileprivate static func configureCellNotSet(dataSource: ASCollectionSectionedDataSource<S>, node: ASCollectionNode, indexPath: IndexPath, model: I) -> ASCellNode {
+        return ASCollectionDataSourceNotSet().collectionNode(node, nodeForItemAt: indexPath)
+    }
+
+    fileprivate static func configureCellBlockNotSet(dataSource: ASCollectionSectionedDataSource<S>, node: ASCollectionNode, indexPath: IndexPath, model: I) -> ASCellNodeBlock {
+        // Users expect collectionNode(_:nodeForItemAt:) will be executed in main thread.
+        return { DispatchQueue.main.sync(execute: { dataSource.collectionNode(node, nodeForItemAt: indexPath) }) }
+    }
+
     public init(
-        configureCell: @escaping ConfigureCell,
+        configureCell: @escaping ConfigureCell,        
         configureSupplementaryView: ConfigureSupplementaryView? = nil,
         moveItem: @escaping MoveItem = { _, _, _ in () },
         canMoveItemAtIndexPath: @escaping CanMoveItemAtIndexPath = { _, _ in false }
         ) {
         self.configureCell = configureCell
+        self.configureCellBlock = ASCollectionSectionedDataSource.configureCellBlockNotSet
+        self.configureSupplementaryView = configureSupplementaryView
+        self.moveItem = moveItem
+        self.canMoveItemAtIndexPath = canMoveItemAtIndexPath
+    }
+
+    public init(
+        configureCellBlock: @escaping ConfigureCellBlock,
+        configureSupplementaryView: ConfigureSupplementaryView? = nil,
+        moveItem: @escaping MoveItem = { _, _, _ in () },
+        canMoveItemAtIndexPath: @escaping CanMoveItemAtIndexPath = { _, _ in false }
+        ) {
+        self.configureCell = ASCollectionSectionedDataSource.configureCellNotSet
+        self.configureCellBlock = configureCellBlock
         self.configureSupplementaryView = configureSupplementaryView
         self.moveItem = moveItem
         self.canMoveItemAtIndexPath = canMoveItemAtIndexPath
@@ -88,6 +112,14 @@ open class ASCollectionSectionedDataSource<S: SectionModelType>: NSObject, ASCol
         didSet {
             #if DEBUG
                 ensureNotMutatedAfterBinding()
+            #endif
+        }
+    }
+
+    open var configureCellBlock: ConfigureCellBlock {
+        didSet {
+            #if DEBUG
+            ensureNotMutatedAfterBinding()
             #endif
         }
     }
