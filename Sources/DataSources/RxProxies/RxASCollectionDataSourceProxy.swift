@@ -50,17 +50,24 @@ final class RxASCollectionDataSourceProxy: DelegateProxy<ASCollectionNode, ASCol
         self.register { RxASCollectionDataSourceProxy(collectionNode: $0) }
     }
 
+    public override func setForwardToDelegate(_ forwardToDelegate: ASCollectionDataSource?, retainDelegate: Bool) {
+        _requiredMethodsDataSource = forwardToDelegate ?? dataSourceNotSet
+        super.setForwardToDelegate(forwardToDelegate, retainDelegate: retainDelegate)
+    }
+
     // MARK: DataSource
     private weak var _requiredMethodsDataSource: ASCollectionDataSource? = dataSourceNotSet
 
     /// Required data source method implementation.
     public func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
-        return (_requiredMethodsDataSource ?? dataSourceNotSet).collectionNode!(collectionNode, numberOfItemsInSection: section)
+        let dataSource = _requiredMethodsDataSource ?? dataSourceNotSet
+        return dataSource.collectionNode!(collectionNode, numberOfItemsInSection: section)
     }
 
     /// Required data source method implementation.
     public func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
-        return (_requiredMethodsDataSource ?? dataSourceNotSet).collectionNode!(collectionNode, nodeForItemAt: indexPath)
+        let dataSource = _requiredMethodsDataSource ?? dataSourceNotSet
+        return dataSource.collectionNode!(collectionNode, nodeForItemAt: indexPath)
     }
     
     /// Required datasource method implementation.
@@ -69,10 +76,4 @@ final class RxASCollectionDataSourceProxy: DelegateProxy<ASCollectionNode, ASCol
 
         return dataSource.collectionNode!(collectionNode, nodeBlockForItemAt: indexPath)
     }
-
-    public override func setForwardToDelegate(_ forwardToDelegate: ASCollectionDataSource?, retainDelegate: Bool) {
-        _requiredMethodsDataSource = forwardToDelegate ?? dataSourceNotSet
-        super.setForwardToDelegate(forwardToDelegate, retainDelegate: retainDelegate)
-    }
-    
 }

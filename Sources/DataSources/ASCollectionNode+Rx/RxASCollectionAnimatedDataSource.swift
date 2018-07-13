@@ -45,6 +45,25 @@ open class RxASCollectionAnimatedDataSource<S: AnimatableSectionModelType>: ASCo
         )
     }
 
+    public init(
+        animationConfiguration: RowAnimation = RowAnimation(),
+        animationType: @escaping AnimationType = { _, _, _ in .animated },
+        configureCellBlock: @escaping ConfigureCellBlock,
+        configureSupplementaryView: ConfigureSupplementaryView? = nil,
+        moveItem: @escaping MoveItem = { _, _, _ in () },
+        canMoveItemAtIndexPath: @escaping CanMoveItemAtIndexPath = { _, _ in false }
+        ) {
+
+        self.animationConfiguration = animationConfiguration
+        self.animationType = animationType
+        super.init(
+            configureCellBlock: configureCellBlock,
+            configureSupplementaryView: configureSupplementaryView,
+            moveItem: moveItem,
+            canMoveItemAtIndexPath: canMoveItemAtIndexPath
+        )
+    }
+
     open func collectionNode(_ collectionNode: ASCollectionNode, observedEvent: RxSwift.Event<Element>) {
         Binder(self) { dataSource, newSections in
             #if DEBUG
