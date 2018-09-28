@@ -163,6 +163,12 @@ open class ASCollectionSectionedDataSource<S: SectionModelType>: NSObject, ASCol
         return configureCell(self, collectionNode, indexPath, self[indexPath])
     }
 
+    open func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
+        precondition(indexPath.item < _sectionModels[indexPath.section].items.count)
+
+        return configureCellBlock(self, collectionNode, indexPath, self[indexPath])
+    }
+
     open func collectionNode(_ collectionNode: ASCollectionNode, nodeForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> ASCellNode {
         guard let cell = configureSupplementaryView?(self, collectionNode, kind, indexPath) else {
             fatalError("configureSupplementaryView was not set")
