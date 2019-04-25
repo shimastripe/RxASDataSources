@@ -44,7 +44,7 @@ open class RxASTableDelegateProxy: DelegateProxy<ASTableNode, ASTableDelegate>, 
 
 public extension Reactive where Base: ASTableNode {
     
-    public var delegate: DelegateProxy<ASTableNode, ASTableDelegate> {
+    var delegate: DelegateProxy<ASTableNode, ASTableDelegate> {
         return RxASTableDelegateProxy.proxy(for: base)
     }
     
