@@ -29,7 +29,9 @@ open class ASCollectionSectionedDataSource<S: SectionModelType>: NSObject, ASCol
 
     fileprivate static func configureCellBlockNotSet(dataSource: ASCollectionSectionedDataSource<S>, node: ASCollectionNode, indexPath: IndexPath, model: I) -> ASCellNodeBlock {
         // Users expect collectionNode(_:nodeForItemAt:) will be executed in main thread.
-        return { DispatchQueue.main.sync(execute: { dataSource.collectionNode(node, nodeForItemAt: indexPath) }) }
+        // see also https://github.com/RxSwiftCommunity/RxASDataSources/pull/14#discussion_r267709117
+        let cellNode = dataSource.collectionNode(node, nodeForItemAt: indexPath)
+        return { cellNode }
     }
 
     public init(
