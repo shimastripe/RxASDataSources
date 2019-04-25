@@ -36,13 +36,13 @@ extension ObservableType {
                 // source can never end, otherwise it would release the subscriber, and deallocate the data source
                 .concat(Observable.never())
                 .takeUntil(object.rx.deallocated)
-                .subscribe { [weak object] (event: RxSwift.Event<E>) in
+                .subscribe { (event: RxSwift.Event<E>) in //[weak object] (event: RxSwift.Event<E>) in
                     
-                    if let object = object {
-                        // TODO: Enable assert again to prevent Proxy changed
-                        // Temporary comment out this to by pass `pod lib lint`
-                        // assert(proxy === DelegateProxy.currentDelegate(for: object), "Proxy changed from the time it was first set.\nOriginal: \(proxy)\nExisting: \(String(describing: DelegateProxy.currentDelegate(for: object)))")
-                    }
+//                    if let object = object {
+//                        // TODO: Enable assert again to prevent Proxy changed
+//                        // Temporary comment out this to by pass `pod lib lint`
+//                        assert(proxy === DelegateProxy.currentDelegate(for: object), "Proxy changed from the time it was first set.\nOriginal: \(proxy)\nExisting: \(String(describing: DelegateProxy.currentDelegate(for: object)))")
+//                    }
 
                     binding(proxy, event)
 

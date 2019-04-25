@@ -36,7 +36,7 @@ public extension Reactive where Base: ASTableNode {
 
      For more information take a look at `DelegateProxyType` protocol documentation.
      */
-    public var dataSource: DelegateProxy<ASTableNode, ASTableDataSource> {
+    var dataSource: DelegateProxy<ASTableNode, ASTableDataSource> {
         return RxASTableDataSourceProxy.proxy(for: base)
     }
 
@@ -49,7 +49,7 @@ public extension Reactive where Base: ASTableNode {
      - parameter dataSource: Data source object.
      - returns: Disposable object that can be used to unbind the data source.
      */
-    public func setDataSource(_ dataSource: ASTableDataSource)
+    func setDataSource(_ dataSource: ASTableDataSource)
         -> Disposable {
             return RxASTableDataSourceProxy.installForwardDelegate(dataSource, retainDelegate: false, onProxyForObject: self.base)
     }
