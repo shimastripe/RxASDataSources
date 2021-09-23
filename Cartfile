@@ -1,2 +1,2 @@
 github "RxSwiftCommunity/RxDataSources" ~> 4.0.1
-github "texturegroup/texture" ~> 3.0.0
+github "shimastripe/texture" "297af4b4af4fc856c85d51deeff564025a4ad41e"
