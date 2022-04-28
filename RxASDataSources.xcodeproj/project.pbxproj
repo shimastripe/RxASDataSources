@@ -8,23 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4590B3A02819323D0069E66F /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B3972819323D0069E66F /* PINRemoteImage.xcframework */; };
-		4590B3A12819323D0069E66F /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B3972819323D0069E66F /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4590B3A22819323D0069E66F /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B3982819323D0069E66F /* PINCache.xcframework */; };
-		4590B3A32819323D0069E66F /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B3982819323D0069E66F /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4590B3A42819323D0069E66F /* RxDataSources.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B3992819323D0069E66F /* RxDataSources.xcframework */; };
-		4590B3A52819323D0069E66F /* RxDataSources.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B3992819323D0069E66F /* RxDataSources.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4590B3A62819323D0069E66F /* RxRelay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B39A2819323D0069E66F /* RxRelay.xcframework */; };
-		4590B3A72819323D0069E66F /* RxRelay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B39A2819323D0069E66F /* RxRelay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4590B3A82819323D0069E66F /* RxCocoa.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B39B2819323D0069E66F /* RxCocoa.xcframework */; };
-		4590B3A92819323D0069E66F /* RxCocoa.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B39B2819323D0069E66F /* RxCocoa.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4590B3AA2819323D0069E66F /* Differentiator.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B39C2819323D0069E66F /* Differentiator.xcframework */; };
-		4590B3AB2819323D0069E66F /* Differentiator.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B39C2819323D0069E66F /* Differentiator.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4590B3AC2819323D0069E66F /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B39D2819323D0069E66F /* RxSwift.xcframework */; };
-		4590B3AD2819323D0069E66F /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B39D2819323D0069E66F /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4590B3AE2819323D0069E66F /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B39E2819323D0069E66F /* PINOperation.xcframework */; };
-		4590B3AF2819323D0069E66F /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B39E2819323D0069E66F /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4590B3B02819323E0069E66F /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B39F2819323D0069E66F /* AsyncDisplayKit.xcframework */; };
-		4590B3B12819323E0069E66F /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B39F2819323D0069E66F /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4590B3B3281932600069E66F /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B39F2819323D0069E66F /* AsyncDisplayKit.xcframework */; };
 		4590B3B4281932600069E66F /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B39F2819323D0069E66F /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4590B3B5281932600069E66F /* Differentiator.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4590B39C2819323D0069E66F /* Differentiator.xcframework */; };
@@ -84,25 +75,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		4590B3B22819323E0069E66F /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				4590B3A32819323D0069E66F /* PINCache.xcframework in Embed Frameworks */,
-				4590B3AB2819323D0069E66F /* Differentiator.xcframework in Embed Frameworks */,
-				4590B3A72819323D0069E66F /* RxRelay.xcframework in Embed Frameworks */,
-				4590B3A92819323D0069E66F /* RxCocoa.xcframework in Embed Frameworks */,
-				4590B3B12819323E0069E66F /* AsyncDisplayKit.xcframework in Embed Frameworks */,
-				4590B3AD2819323D0069E66F /* RxSwift.xcframework in Embed Frameworks */,
-				4590B3A12819323D0069E66F /* PINRemoteImage.xcframework in Embed Frameworks */,
-				4590B3A52819323D0069E66F /* RxDataSources.xcframework in Embed Frameworks */,
-				4590B3AF2819323D0069E66F /* PINOperation.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4590B3C5281932600069E66F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -383,7 +355,6 @@
 				3549BB1D1DA389CD00C63030 /* Frameworks */,
 				3549BB1E1DA389CD00C63030 /* Headers */,
 				3549BB1F1DA389CD00C63030 /* Resources */,
-				4590B3B22819323E0069E66F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
