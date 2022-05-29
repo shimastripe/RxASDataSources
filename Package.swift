@@ -10,6 +10,9 @@ let package = Package(
         .library(
             name: "RxASDataSources",
             targets: ["RxASDataSources"]),
+        .library(
+            name: "RxASDataSourcesTestKit",
+            targets: ["RxASDataSourcesTestKit"]),
     ],
     dependencies: [],
     targets: [
@@ -19,6 +22,9 @@ let package = Package(
             name: "RxASDataSources",
             dependencies: ["AsyncDisplayKit", "Differentiator", "libwebp", "PINCache", "PINOperation", "PINRemoteImage", "RxCocoa", "RxDataSources", "RxRelay", "RxSwift"],
             path: "./Sources/DataSources"),
+        .target(
+            name: "RxASDataSourcesTestKit",
+            dependencies: ["RxBlocking", "RxTest"]),
         .binaryTarget(name: "AsyncDisplayKit", url: "https://github.com/shimastripe/RxASDataSources/releases/download/3.0.0-xcframework/AsyncDisplayKit.xcframework.zip", checksum: "569cf5603cc3e7125f2bf84dbb0fc6f887f87cab241db8599eff539153732123"),
         .binaryTarget(name: "Differentiator", url: "https://github.com/shimastripe/RxASDataSources/releases/download/3.0.0-xcframework/Differentiator.xcframework.zip", checksum: "aba2760ee22544bdfccc4cd156128946f7d3e5e3383efed12ac65aa9e646bd14"),
         .binaryTarget(name: "libwebp", url: "https://github.com/shimastripe/RxASDataSources/releases/download/3.0.0-xcframework/libwebp.xcframework.zip", checksum: "2ea1722259dd7a989cf7e0bb99e01973e2e5fde10b78ed8f623e9b1ad1745e61"),
@@ -29,5 +35,7 @@ let package = Package(
         .binaryTarget(name: "RxDataSources", url: "https://github.com/shimastripe/RxASDataSources/releases/download/3.0.0-xcframework/RxDataSources.xcframework.zip", checksum: "39871ea11708a14ecf21d572da7076a8f92ef5df6748518a4fcc24f583af22fc"),
         .binaryTarget(name: "RxRelay", url: "https://github.com/shimastripe/RxASDataSources/releases/download/3.0.0-xcframework/RxRelay.xcframework.zip", checksum: "16fa4db88a24257bf72f4e8638a4e92a0a6ad56834c9af03a89c6e5671869ae0"),
         .binaryTarget(name: "RxSwift", url: "https://github.com/shimastripe/RxASDataSources/releases/download/3.0.0-xcframework/RxSwift.xcframework.zip", checksum: "ea5c6656ce66be45f7611631721ec3f4261bccd55a070cfc0d4128712230e441"),
+        .binaryTarget(name: "RxBlocking", url: "https://github.com/shimastripe/RxASDataSources/releases/download/3.0.0-xcframework/RxBlocking.xcframework.zip", checksum: "b7f4d5974df036e98a4d14114873ce7f7a687e41287d4d46e56a296194c62962"),
+        .binaryTarget(name: "RxTest", url: "https://github.com/shimastripe/RxASDataSources/releases/download/3.0.0-xcframework/RxTest.xcframework.zip", checksum: "c0031437947023f9b69b95ec3709a975fa6d111a290554e902d2d0a5b4864e89"),
     ]
 )
